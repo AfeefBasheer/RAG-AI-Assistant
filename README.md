@@ -1,1 +1,1 @@
-# News-Bot-Back-end
+# RAG AI Assistant
