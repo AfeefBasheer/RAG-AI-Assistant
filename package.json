@@ -1,0 +1,21 @@
+{
+  "name": "rag---chatbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "start": "npm start",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chromadb": "^1.5.2",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "ioredis": "^5.7.0"
+  }
+}
