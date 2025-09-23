@@ -1,7 +1,8 @@
 import textSplitterService from "./textSplitter/textSplitterService.js";
+import embedderService from "./embedder/embedderService.js";
 
-function preprocessData(data, size, overlap) {
-  console.log(textSplitterService.getTextSplitter(size, overlap));
+async function preprocessData(data, size, overlap) {
+
 }
 
 export default { preprocessData };

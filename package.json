@@ -17,7 +17,10 @@
     "chromadb": "^1.5.2",
     "dotenv": "^17.2.2",
     "express": "^5.1.0",
+    "fetch": "^1.1.0",
     "ioredis": "^5.7.0",
-    "langchain": "^0.3.34"
+    "langchain": "^0.3.34",
+    "node": "^24.8.0",
+    "node-fetch": "^3.3.2"
   }
 }
