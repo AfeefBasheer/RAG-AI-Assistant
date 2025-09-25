@@ -39,7 +39,7 @@ async function insertDocumentsToCollection(documents, collection) {
 
   await collection.add({
     ids: splited.map((_, i) => `doc_${i}`),
-    embeddings: embeddings.map((e) => Array.from(e.data)), \
+    embeddings: embeddings.map((e) => Array.from(e.data)), 
     documents: splited.map((d) => d.pageContent),
     metadatas: splited.map((d, i) => ({ source: "my_document", chunk: i })),
   });

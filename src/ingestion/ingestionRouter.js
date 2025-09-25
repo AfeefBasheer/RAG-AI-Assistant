@@ -1,8 +1,11 @@
 import express from "express";
-import preprocessorService from "../preprocessor/preprocessorService.js";
+import ingestionService from "../preprocessor/preprocessorService.js";
 
 const Router = express.Router();
 
-let processedData = preprocessorService.preprocessData('afeef')
+Router.post("/getdata", async (req, res) => {
+  let response = await ingestionService.ingestData(req.body);
+  console.log(response);
+});
 
 export default Router;

@@ -1,13 +1,13 @@
-import ingestionRepository from "./ingestionRepository.js";
+import preprocessorService from "../preprocessor/preprocessorService.js";
 
-async function addIngestionCollection(collectionName) {
-  return await ingestionRepository.createIngestionCollection(collectionName);
+async function ingestData(data) {
+  const preprocessedData = preprocessorService.preprocessData(data);
+  console.log(preprocessedData);
+  //data to be stored must be in preprocessedData
+
+  //get preprocessed data
+  //get the collection
+  //insertinto collection
 }
 
-async function addDocumentsToCollection(collection) {
-  return await ingestionRepository.insertDocumentsToCollection(
-    documents,
-    collection
-  );
-}
-export default { addIngestionCollection, addDocumentsToCollection };
+export default { ingestData };
