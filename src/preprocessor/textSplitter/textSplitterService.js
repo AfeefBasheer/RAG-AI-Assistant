@@ -1,7 +1,21 @@
 import textSplitter from "./textSplitter.js";
 
-async function getTextSplitter(size, overlap) {
-  return textSplitter.createRecursiveCharacterTextSplitter(size, overlap);
+async function createRecursiveCharacterTextSplitter(size, overlap) {
+  return await textSplitter.createRecursiveCharacterTextSplitter(size, overlap);
 }
 
-export default { getTextSplitter };
+async function getTextSplitter() {
+  return await textSplitter.getRecursiveCharacterTextSplitter();
+}
+
+async function splitTheData() {
+  return await textSplitterService
+    .getTextSplitter(data)
+    .createDocuments([sampleText], [{ source: sources }]);
+}
+
+export default {
+  getTextSplitter,
+  createRecursiveCharacterTextSplitter,
+  splitTheData,
+};

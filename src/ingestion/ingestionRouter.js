@@ -3,6 +3,6 @@ import preprocessorService from "../preprocessor/preprocessorService.js";
 
 const Router = express.Router();
 
-preprocessorService.preprocessData('afeef',10,5)
+let processedData = preprocessorService.preprocessData('afeef')
 
 export default Router;
