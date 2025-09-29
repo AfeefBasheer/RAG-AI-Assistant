@@ -1,13 +1,19 @@
 import preprocessorService from "../preprocessor/preprocessorService.js";
+import ingestionRepository from "./ingestionRepository.js";
+
+const collectionName = "afeef-trial";
 
 async function ingestData(data) {
-  const preprocessedData = preprocessorService.preprocessData(data);
-  console.log(preprocessedData);
-  //data to be stored must be in preprocessedData
+  const preprocessedData = await preprocessorService.preprocessData(data);
+  const normalizedData = await ingestionRepository.normalizeIngestionData(
+    preprocessedData
+  );
+  const collection = await ingestionRepository.createIngestionCollection(
+    collectionName
+  );
 
-  //get preprocessed data
-  //get the collection
-  //insertinto collection
+  const ingestedData =await ingestionRepository.insertDocumentsToCollection(normalizedData,collection)
+  return ingestedData
 }
 
 export default { ingestData };

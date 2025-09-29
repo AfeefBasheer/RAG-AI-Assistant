@@ -4,7 +4,7 @@ async function createRecursiveCharacterTextSplitter(size, overlap) {
   try {
     return await new RecursiveCharacterTextSplitter({
       chunkSize: size,
-      chunkOverlap: overlap,
+      chunkOverlap: 0,
     });
   } catch (err) {
     console.log(err + " -createRecursiveCharacterTextSplitter | textSplitter");
