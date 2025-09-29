@@ -1,13 +1,19 @@
+import preprocessorService from "../preprocessor/preprocessorService.js";
 import ingestionRepository from "./ingestionRepository.js";
 
-async function addIngestionCollection(collectionName) {
-  return await ingestionRepository.createIngestionCollection(collectionName);
+const collectionName = "afeef-trial";
+
+async function ingestData(data) {
+  const preprocessedData = await preprocessorService.preprocessData(data);
+  const normalizedData = await ingestionRepository.normalizeIngestionData(
+    preprocessedData
+  );
+  const collection = await ingestionRepository.createIngestionCollection(
+    collectionName
+  );
+
+  const ingestedData =await ingestionRepository.insertDocumentsToCollection(normalizedData,collection)
+  return ingestedData
 }
 
-async function addDocumentsToCollection(collection) {
-  return await ingestionRepository.insertDocumentsToCollection(
-    documents,
-    collection
-  );
-}
-export default { addIngestionCollection, addDocumentsToCollection };
+export default { ingestData };
