@@ -5,14 +5,12 @@ const collectionName = "afeef-trial";
 
 async function ingestData(data) {
   const preprocessedData = await preprocessorService.preprocessData(data);
-  const normalizedData = await ingestionRepository.normalizeIngestionData(
-    preprocessedData
-  );
+
   const collection = await ingestionRepository.createIngestionCollection(
     collectionName
   );
 
-  const ingestedData =await ingestionRepository.insertDocumentsToCollection(normalizedData,collection)
+  const ingestedData =await ingestionRepository.insertDocumentsToCollection(preprocessedData,collection)
   return ingestedData
 }
 
