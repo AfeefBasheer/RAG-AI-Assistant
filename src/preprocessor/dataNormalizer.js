@@ -26,7 +26,6 @@ async function normalizeGivenData(splitData,embeddedData) {
       // convert Float32Array → plain array
       normalizedData.embeddings.push(Array.from(embeddedData[i].data));
     });
-    console.log(normalizedData)
     return normalizedData;
   } catch (err) {
     console.error(err + " - normalizeIngestionData");

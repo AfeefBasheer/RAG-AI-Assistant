@@ -17,7 +17,7 @@ async function preprocessData(data) {
 
 async function preprocessQuery(userQuery) {
 
-    let splittedQuery = await dataSplitterService.splitTheData(userQuery.query);
+    let splittedQuery = await dataSplitterService.splitTheData(userQuery);
 
     let embeddedQuery = await dataEmbedderService.embedTheData(
       splittedQuery,
