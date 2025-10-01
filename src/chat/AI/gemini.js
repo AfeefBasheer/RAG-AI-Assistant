@@ -9,7 +9,7 @@ async function createGemini() {
   try {
   const genAI = await new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
   gemini = await genAI.getGenerativeModel({ model: "gemini-pro" });
-    console.log("gemini-creation-called")
+    console.log("gemini-connected")
   } catch (err) {
     console.log(err + " - createGemini | gemini");
   }

@@ -1,8 +1,8 @@
 const constants = {
-  dataSplitSize: 500,
-  dataOverlap: 50,
-  querySplitSize: 200,
-  queryOverlap: 20,
+  dataSplitSize: 800,
+  dataOverlap: 150,
+  querySplitSize: 300,
+  queryOverlap: 0,
 };
 
 export default {constants};
