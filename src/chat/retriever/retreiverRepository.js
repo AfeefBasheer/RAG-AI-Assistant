@@ -1,11 +1,10 @@
-const threshold = 0.5;
+const threshold = 1;
 
 async function retrieveData(userQuery, collection) {
   try {
     return await collection.query({
       queryEmbeddings: userQuery.embeddings,
-      nResults: 5,
-      distance: 1,
+      nResults: 10,
       ids: userQuery.ids,
       include: ["documents", "metadatas", "distances"],
     });
@@ -16,6 +15,7 @@ async function retrieveData(userQuery, collection) {
 
 async function getRelevantData(retrievedData) {
   try {
+    console.log(retrievedData)
     // flatten nested arrays from Chroma
     retrievedData.ids = retrievedData.ids[0];
     retrievedData.metadatas = retrievedData.metadatas[0];

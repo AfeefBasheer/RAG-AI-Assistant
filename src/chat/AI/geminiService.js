@@ -4,8 +4,16 @@ async function createGemini() {
   return await gemini.createGemini();
 }
 
-async function getGemini() {
-  return await gemini.getGemini();
+async function askGemini(prompt) {
+  let response = ""
+ await gemini.askGeminiStream(prompt,  (chunk) => {
+  response = response + chunk
+});
+return response
 }
 
-export default { getGemini, createGemini };
+async function askGeminiWIthRetries(prompts) {
+  return await gemini.askGeminiWithRetry(prompts);
+}
+
+export default { createGemini, askGemini, askGeminiWIthRetries };
