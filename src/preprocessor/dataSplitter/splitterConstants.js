@@ -1,7 +1,7 @@
 const constants = {
-  dataSplitSize: 800,
-  dataOverlap: 150,
-  querySplitSize: 300,
+  dataSplitSize: 250,
+  dataOverlap: 0,
+  querySplitSize: 250,
   queryOverlap: 0,
 };
 

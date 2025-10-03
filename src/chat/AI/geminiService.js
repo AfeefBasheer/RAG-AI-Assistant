@@ -5,15 +5,15 @@ async function createGemini() {
 }
 
 async function askGemini(prompt) {
-  let response = ""
- await gemini.askGeminiStream(prompt,  (chunk) => {
-  response = response + chunk
-});
-return response
+  let response = "";
+  await gemini.askGeminiStream(prompt, (chunk) => {
+    response = response + chunk;
+  });
+  if (response == "" || !response)
+    response = await gemini.askGeminiWithRetry(prompt);
+
+  return response;
 }
 
-async function askGeminiWIthRetries(prompts) {
-  return await gemini.askGeminiWithRetry(prompts);
-}
 
-export default { createGemini, askGemini, askGeminiWIthRetries };
+export default { createGemini, askGemini };

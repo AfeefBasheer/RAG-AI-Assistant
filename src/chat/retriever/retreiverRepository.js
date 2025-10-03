@@ -1,4 +1,4 @@
-const threshold = 1;
+import retrieverConstants from "./retrieverConstants";
 
 async function retrieveData(userQuery, collection) {
   try {
@@ -24,7 +24,7 @@ async function getRelevantData(retrievedData) {
 
     const filteredIndices = retrievedData.distances
       .map((distance, index) => ({ distance, index }))
-      .filter(item => item.distance < threshold)
+      .filter(item => item.distance < retrieverConstants.threshold)
       .map(item => item.index);
 
     return {

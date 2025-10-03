@@ -12,8 +12,8 @@ async function handleUserQuery(userQuery) {
     preprocessedQuery,
     userQuery.collection
   );
-  // const prompt = chatRepository.buildPrompt(userQuery.query,retreivedData)
-  // return await geminiService.askGemini(prompt);
+  const prompt = chatRepository.buildPrompt(userQuery.query,retreivedData)
+  return await geminiService.askGemini(prompt);
 }
 
 export default { handleUserQuery };
