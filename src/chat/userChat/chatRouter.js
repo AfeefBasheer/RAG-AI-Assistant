@@ -5,7 +5,7 @@ const Router = express.Router();
 
 Router.post("/sendquery", async (req, res) => {
   let response = await chatService.handleUserQuery(req.body);
-  console.log(response)
+  console.log(response);
   res.send(response);
 });
 
