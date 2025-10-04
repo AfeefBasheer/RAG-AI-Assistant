@@ -1,4 +1,4 @@
-import retrieverConstants from "./retrieverConstants";
+import retrieverConstants from "./retrieverConstants.js";
 
 async function retrieveData(userQuery, collection) {
   try {
