@@ -7,8 +7,11 @@ async function ingestData(ingestionData) {
   const collection = await ingestionRepository.createIngestionCollection(
     ingestionData.collection
   );
-
+  
+  console.log(await collection.count())
   const ingestedData =await ingestionRepository.insertDocumentsToCollection(preprocessedData,collection)
+  console.log(ingestedData)
+  console.log(await collection.count())
   return ingestedData
 }
 

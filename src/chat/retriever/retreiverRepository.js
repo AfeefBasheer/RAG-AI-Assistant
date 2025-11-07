@@ -3,15 +3,16 @@ import retrieverConstants from "./retrieverConstants.js";
 async function retrieveData(userQuery, collection) {
   try {
     return await collection.query({
-      queryEmbeddings: userQuery.embeddings,
+      queryEmbeddings: userQuery.embeddings, // array of floats
       nResults: 10,
-      ids: userQuery.ids,
       include: ["documents", "metadatas", "distances"],
     });
   } catch (err) {
-    console.log(err + "-");
+    console.error("retrieveData failed:", err);
+    return null;
   }
 }
+
 
 async function getRelevantData(retrievedData) {
   try {
