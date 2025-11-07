@@ -9,22 +9,30 @@ async function createAndConnectToClient() {
   try {
     client = new ChromaClient({
       host: process.env.CHROMA_HOST,
-      port: process.env.CHROMA_PORT,
+      port: Number(process.env.CHROMA_PORT), // ensure it's a number
       ssl: false,
     });
-    console.log("chroma-version " + (await client.version()));
-    console.log("ChromaDB succesfully connected");
+
+    // Await the heartbeat or version properly
+    const versionInfo = await client.version();
+    console.log("Chroma version:", versionInfo);
+
+    // Optional: test heartbeat
+    const heartbeat = await client.heartbeat();
+    console.log("Chroma heartbeat:", heartbeat);
+
+    console.log("ChromaDB successfully connected");
   } catch (err) {
-    console.log(err + " - ChromaDB not connected");
+    console.error(err, "- ChromaDB not connected");
   }
 }
 
 async function getClient() {
-  try {
-    if (client) return client;
-    else console.log("Client not Created");
-  } catch (err) {
-    console.log(err + " - Cannot get Client");
+  if (!client) {
+    console.log("Client not created");
+    return null;
   }
+  return client;
 }
+
 export default { createAndConnectToClient, getClient };
