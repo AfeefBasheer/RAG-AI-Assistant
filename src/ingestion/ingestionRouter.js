@@ -5,7 +5,7 @@ const Router = express.Router();
 
 
 Router.post("/senddata", async (req, res) => {
-  let response = await ingestionService.ingestData(req.body);
+  let response = await ingestionService.ingestData(req.body.filePath,req.body.collectionName);
   console.log(response);
   res.send("here");
 });

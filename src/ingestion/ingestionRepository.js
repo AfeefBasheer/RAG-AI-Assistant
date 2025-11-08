@@ -1,8 +1,7 @@
 import database from "../database/chroma.js";
 
-// No-op embedding function for pre-embedded vectors
 const noopEmbeddingFunction = {
-  embed: async (data) => data, // just returns precomputed embeddings
+  embed: async (data) => data, 
 };
 
 async function createIngestionCollection(collectionName) {
@@ -10,7 +9,7 @@ async function createIngestionCollection(collectionName) {
     const client = await database.getClient();
     return await client.getOrCreateCollection({
       name: collectionName,
-      embeddingFunction: noopEmbeddingFunction, // required in 1.0.0
+      embeddingFunction: noopEmbeddingFunction,
     });
   } catch (err) {
     console.error("createIngestionCollection failed:", err);
@@ -45,7 +44,7 @@ async function insertDocumentsToCollection(data, collection) {
       ids: data.ids,
       embeddings: data.embeddings, // your precomputed embeddings
       documents: data.contents,
-      metadatas: flatMetadatas, // notice correct property name: "metadatas"
+      metadatas: flatMetadatas, 
     });
   } catch (err) {
     console.error("insertDocumentsToCollection failed:", err);
