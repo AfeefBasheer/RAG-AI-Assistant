@@ -9,6 +9,7 @@ async function createAndConnectToClient() {
   try {
     client = new ChromaClient({
       host: process.env.CHROMA_HOST,
+      persistDirectory: null,
       port: Number(process.env.CHROMA_PORT), // ensure it's a number
       ssl: false,
     });
